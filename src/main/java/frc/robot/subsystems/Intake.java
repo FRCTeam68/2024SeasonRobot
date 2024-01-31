@@ -18,7 +18,6 @@ public class Intake implements Subsystem{
         
     }
 
-
     public void changeState(State state) {
         currentState = state;
     }

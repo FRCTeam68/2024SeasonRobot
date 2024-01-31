@@ -9,8 +9,25 @@ public final class Constants {
 
     public static final double loopLengthSeconds = 0.02;
 
+    public final static class Shooter {
+        public static final int speed1 = 0;
+    }
+
+    public final static class Climber {
+
+    }
+
+    public final static class LED {
+
+    }
+
+    public final static class Feeder {
+        
+    }
+
     public final static class Controllers {
         public static final int driveID = 0;
+        public static final int manipID = 0;
     }
 
     public final static class Drivetrain {

@@ -1,9 +1,5 @@
 package frc.robot;
 
-import com.ctre.phoenix6.SignalLogger;
-
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.loops.SubsystemManager;
 
 public class RobotContainer {

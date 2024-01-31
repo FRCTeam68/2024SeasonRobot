@@ -3,8 +3,11 @@ package frc.robot.subsystems;
 public class Shooter implements Subsystem {
     private State currentState = State.IDLE;
 
+    private float speed = 0; 
+
     public enum State {
-        IDLE
+        IDLE,
+        SHOOT
     }
 
     @Override
@@ -27,6 +30,14 @@ public class Shooter implements Subsystem {
 
     public State getState() {
         return currentState;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
+
+    public float getSpeed() {
+        return speed;
     }
 
     @Override
