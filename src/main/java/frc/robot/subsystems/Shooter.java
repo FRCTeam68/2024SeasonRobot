@@ -17,7 +17,10 @@ public class Shooter implements Subsystem {
         
     }
 
-
+    /**
+     * Put logic here on what states lock what states.
+     * @param state
+     */
     public void changeState(State state) {
         currentState = state;
     }
