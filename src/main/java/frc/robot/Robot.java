@@ -3,6 +3,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
+import frc.robot.subsystems.Intake;
 
 public class Robot extends TimedRobot {
 
@@ -89,14 +90,18 @@ public class Robot extends TimedRobot {
     public void checkControls() {
         if (manipController.getCircleButton()){
             // TAKE NOTE
+            robotContainer.m_intake.changeState(Intake.State.PICK_UP);
         }
 
         if (manipController.getCrossButton()){
+            robotContainer.m_intake.changeState(Intake.State.SHOOTING);
             // INTAKE STOP
         }
 
         if (manipController.getL2Button()) {
             // SHOOT
         }
+
+        
     }
 }

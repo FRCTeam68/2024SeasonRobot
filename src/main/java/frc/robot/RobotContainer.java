@@ -1,12 +1,14 @@
 package frc.robot;
 
 import frc.robot.loops.SubsystemManager;
+import frc.robot.subsystems.Intake;
 
 public class RobotContainer {
 
     private static RobotContainer INSTANCE;
 
     private final SubsystemManager manager;
+	public final Intake m_intake;
 
 	public enum EnableState {
 		DISABLED,
@@ -24,7 +26,8 @@ public class RobotContainer {
 
 
 		manager = new SubsystemManager(Constants.loopLengthSeconds);
-
+		m_intake = new Intake();
+		manager.setSubsystems(m_intake);
 	}
 
 	

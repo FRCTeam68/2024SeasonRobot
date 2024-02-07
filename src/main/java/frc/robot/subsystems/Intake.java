@@ -1,5 +1,7 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.controls.CoastOut;
+import com.ctre.phoenix6.controls.StaticBrake;
 import com.ctre.phoenix6.hardware.TalonFX;
 
 import frc.robot.Constants;
@@ -12,18 +14,26 @@ public class Intake implements Subsystem{
 
     private TalonFX shootMotor; //TODO: Initialize the motor
 
-    public enum State {
+    public static enum State {
         SHOOTING,
+        PICK_UP,
         IDLE
     }
 
     @Override
     public void processLoop(double timestamp) {
-    switch (currentState) {
+    switch (currentState) { // Maybe instead of calling this every loop, have it be a switched state function and that might save on space
         case SHOOTING:
+            shootMotor.setControl(new StaticBrake()); 
+            // Put on break mode because eh. Should take care of everything else with the setSpeed
             break;
-        case IDLE:
+        case PICK_UP:
+            //Yea I honestly have no clue what goes here so this is for someone else
+            break;
+        case IDLE: // No break here on purpose. We can add IDLE specific things here but it will always run the default
+            shootMotor.setControl(new CoastOut());
         default:
+            setSpeed(0);
             break;
     }
     }
@@ -45,7 +55,10 @@ public class Intake implements Subsystem{
     }
 
     public void changeState(State state) {
-        currentState = state;
+        if (currentState != state) {// Maybe try to get rid of this branching but for now its fine
+            currentState = state;
+            
+        }
     }
 
     public State getState() {
