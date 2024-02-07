@@ -11,6 +11,7 @@ public final class Constants {
 
     public final static class Shooter {
         public static final int speed1 = 0;
+        public static double maxSpeed = 10.0; // Units idk also arbitrary number here because I'm not sure what to put
     }
 
     public final static class Climber {
@@ -22,7 +23,7 @@ public final class Constants {
     }
 
     public final static class Feeder {
-        
+
     }
 
     public final static class Controllers {
